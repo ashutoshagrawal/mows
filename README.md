@@ -1,4 +1,5 @@
 mows
 ====
 
-MQTT Over Websockets
+MQTT Over Websockets Client Library
+
