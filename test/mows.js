@@ -1,6 +1,6 @@
 /*!
  * Copyright(c) 2014 Ashutosh Agrawal <ashutoshkagrawal@gmail.com>
- * MIT Licensed
+ * EPL Licensed
  */
 
 
