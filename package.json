@@ -1,5 +1,5 @@
 {
-  "name": "mows",
+  "name": "mqtt_over_websockets",
   "version": "0.0.1b",
   "description": "MQTT over Websockets Client Library",
   "main": "index.js",
