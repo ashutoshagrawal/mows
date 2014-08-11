@@ -1,14 +1,8 @@
-/*
-var WebSocket = require('ws');
-var ws = new WebSocket('ws://www.host.com/path');
-ws.on('open', function() {
-    ws.send('something');
-});
-ws.on('message', function(data, flags) {
-    // flags.binary will be set if a binary data is received
-    // flags.masked will be set if the data was masked
-});
-*/
+/*!
+ * Copyright(c) 2014 Ashutosh Agrawal <ashutoshkagrawal@gmail.com>
+ * MIT Licensed
+ */
+
 
 var Messaging = require("../index");
 
@@ -43,14 +37,11 @@ function onConnectionLost(responseObject) {
 	}
 }
 
-var PLATFORM_IP 			= '111.93.235.84';
+var PLATFORM_IP 			= 'MYIP';
 var PLATFORM_PORT 			= 61614;
 var CLIENT_ID 				= defaultClientId();
-var USER 					= 'PLATFORM';
-var PASSWD 					= 'platform';
-var CONN_TIMER				= 600;
-var DESTINATION_ENTITY_ID 	= 'OfficeLibraryDemo';
-var ENTITY_VERSION			= "1.0";
+var USER 				= 'MY-USER';
+var PASSWD 				= 'MY-PASSWORD';
 
 
 function doConnection(ip,port,clientId,username,passwd){
@@ -60,9 +51,6 @@ function doConnection(ip,port,clientId,username,passwd){
 	wsClient.onMessageArrived = onMessageArrived;
 	wsClient.onConnectionLost = onConnectionLost;
 	wsClient.connect({userName: username, password:passwd, onSuccess:onConnect, onFailure:onFailure});
-
-	//wsClient.startTrace();
-	//console.log(wsClient.getTraceLog());
 }
 
 doConnection(PLATFORM_IP,PLATFORM_PORT,CLIENT_ID,USER,PASSWD);
