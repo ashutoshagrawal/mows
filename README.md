@@ -34,7 +34,10 @@ associated with its delivery, in particular the destination to which it has been
 The programming interface validates parameters passed to it, and will throw an Error containing an error message
 intended for developer use, if it detects an error with any parameter.
 <p>
+
 Example:
+
+<code><pre>
 
 client = new Messaging.Client(location.hostname, Number(location.port), "clientId");
 client.onConnectionLost = onConnectionLost;
@@ -57,3 +60,4 @@ function onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
   client.disconnect();
 };
+</pre></code>
