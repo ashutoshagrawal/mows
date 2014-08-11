@@ -1,24 +1,7 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBM Corp.
- *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * and Eclipse Distribution License v1.0 which accompany this distribution.
- *
- * The Eclipse Public License is available at
- *    http://www.eclipse.org/legal/epl-v10.html
- * and the Eclipse Distribution License is available at
- *   http://www.eclipse.org/org/documents/edl-v10.php.
- *
- * Contributors:
- *    Andrew Banks - initial API and implementation and initial documentation
+ * Copyright (c) 2014 Ashutosh Agrawal <ashutoshkagrawal@gmail.com>.
+ * MIT Licensed
  *******************************************************************************/
-
-
-// Only expose a single object name in the global namespace.
-// Everything must go through this module. Global Messaging module
-// only has a single public function, client, which returns
-// a Messaging client object given connection details.
 
 /**
  * @namespace Messaging
@@ -72,25 +55,21 @@ function onMessageArrived(message) {
   client.disconnect();
 };
  * </pre></code>
- * <p>
- * Other programming languages,
- * <a href="/clients/java/doc/javadoc/index.html"><big>Java</big></a>,
- * <a href="/clients/c/doc/html/index.html"><big>C</big></a>.
  */
 (function (global) {
 
-	if (typeof localStorage === "undefined" || localStorage === null) {
-		var LocalStorage = require('node-localstorage').LocalStorage;
-		localStorage = new LocalStorage('./scratch');
-	}
+    if (typeof localStorage === "undefined" || localStorage === null) {
+	var LocalStorage = require('node-localstorage').LocalStorage;
+	localStorage = new LocalStorage('./scratch');
+    }
 
-	var WebSocket = require('ws');
+    var WebSocket = require('ws');
 
     // Private variables below, these are only visible inside the function closure
     // which is used to define the module.
 
-	var version = "0.0.0.0";
-	var buildLevel = "@BUILDLEVEL@";
+    var version = "0.0.0.0";
+    var buildLevel = "@BUILDLEVEL@";
 
     /**
      * Unique message type identifiers, with associated
