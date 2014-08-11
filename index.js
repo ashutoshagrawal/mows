@@ -1,6 +1,10 @@
 /*******************************************************************************
  * Copyright (c) 2014 Ashutosh Agrawal <ashutoshkagrawal@gmail.com>.
- * MIT Licensed
+ * EPL Licensed
+ * The Eclipse Public License is available at
+ * 	http://www.eclipse.org/legal/epl-v10.html
+ * and the Eclipse Distribution License is available at
+ * 	http://www.eclipse.org/org/documents/edl-v10.php.
  *******************************************************************************/
 
 /**
