@@ -36,28 +36,72 @@ intended for developer use, if it detects an error with any parameter.
 <p>
 
 Example:
+<b>
+npm install mqtt_over_websockets
+</b>
 
-<code><pre>
+<b>
+var Messaging = require("mqtt_over_websockets");
+</b>
 
-client = new Messaging.Client(location.hostname, Number(location.port), "clientId");
-client.onConnectionLost = onConnectionLost;
-client.onMessageArrived = onMessageArrived;
-client.connect({onSuccess:onConnect});
 
-function onConnect() {
-  // Once a connection has been made, make a subscription and send a message.
-  console.log("onConnect");
-  client.subscribe("/World");
-  message = new Messaging.Message("Hello");
-  message.destinationName = "/World";
-  client.send(message);
+<b>
+Sample Working Complete Source Code
+</b>
+
+<pre><code>
+
+
+var Messaging = require("mqtt_over_websockets");
+
+var wsClient = null;
+
+function defaultClientId(){
+	return "WS" + (Math.random() + 1).toString(36).substring(10);
+	//return "WScoj8xgvi";
+}
+
+// the client is notified when it is connected to the server.
+var onConnect = function(frame) {
+	console.log("WS:Connected:Successfully");
+	wsClient.subscribe('/Ashutosh');
+	var message = new Messaging.Message("JAI GANESH JI MAHARAJ KI JAI");
+	message.destinationName = "/Ashutosh";
+  	wsClient.send(message);
 };
-function onConnectionLost(responseObject) {
-  if (responseObject.errorCode !== 0)
-    console.log("onConnectionLost:"+responseObject.errorMessage);
-};
+
+
+function onFailure(failure) {
+	console.log("WS:Failure:" + failure.errorMessage);
+}
+
 function onMessageArrived(message) {
-  console.log("onMessageArrived:"+message.payloadString);
-  client.disconnect();
-};
-</pre></code>
+	console.log("WS:Message Arrived: Topic:" + message.destinationName + ":Msg:" + message.payloadString);
+}
+
+function onConnectionLost(responseObject) {
+	if (responseObject.errorCode !== 0) {
+		console.log("WS:Connection Lost:"  + wsClient.clientId + ": " + responseObject.errorCode + "\n");
+	}
+}
+
+var PLATFORM_IP 			= 'SERVER-IP';
+var PLATFORM_PORT 			= SERVER-PORT;
+var CLIENT_ID 				= defaultClientId();
+var USER 				= 'USER-ID';
+var PASSWD 				= 'PASSWORD';
+
+
+function doConnection(ip,port,clientId,username,passwd){
+	console.log("Default Client-Id:" + clientId);
+	wsClient = new Messaging.Client(ip, port , clientId);
+	wsClient.onConnect = onConnect;
+	wsClient.onMessageArrived = onMessageArrived;
+	wsClient.onConnectionLost = onConnectionLost;
+	wsClient.connect({userName: username, password:passwd, onSuccess:onConnect, onFailure:onFailure});
+}
+
+doConnection(PLATFORM_IP,PLATFORM_PORT,CLIENT_ID,USER,PASSWD);
+
+
+</code></pre>
