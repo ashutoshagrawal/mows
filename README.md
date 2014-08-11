@@ -35,14 +35,16 @@ The programming interface validates parameters passed to it, and will throw an E
 intended for developer use, if it detects an error with any parameter.
 <p>
 
-Example:
 <b>
+Installation:
+</b></br>
 npm install mqtt_over_websockets
-</b>
 
-<b>
+</br></br>
+<b>Includes:
+</b></br>
 var Messaging = require("mqtt_over_websockets");
-</b>
+</br></br>
 
 
 <b>
