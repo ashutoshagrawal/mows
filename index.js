@@ -9,9 +9,9 @@
 
 /**
  * @namespace Messaging
- * Send and receive messages using web browsers.
+ * Send and receive messages using Node.js.
  * <p>
- * This programming interface lets a JavaScript client application use the MQTT V3.1 protocol to
+ * This programming interface lets a Node.js client application use the MQTT V3.1 protocol to
  * connect to an MQTT-supporting messaging server.
  *
  * The function supported includes:
