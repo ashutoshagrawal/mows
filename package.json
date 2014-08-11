@@ -1,6 +1,6 @@
 {
   "name": "mows",
-  "version": "0.0.1",
+  "version": "0.0.1b",
   "description": "MQTT over Websockets Client Library",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/ashutoshagrawal/mows/issues"
   },
-  "homepage": "https://github.com/ashutoshagrawal/mows"
+  "homepage": "https://github.com/ashutoshagrawal/mows",
+    "dependencies": {
+      "ws": "0.4.32",
+      "node-localstorage": "0.3.4"
+  }
 }
