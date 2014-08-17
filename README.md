@@ -7,7 +7,7 @@ based on
 
 http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/plain/src/mqttws31.js 
 
-Send and receive messages using web browsers.
+Send and receive messages using Node.js clients
 
 <p>
 
